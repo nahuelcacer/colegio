@@ -1,0 +1,43 @@
+{% extends 'inicio.html' %}
+{% load bootstrap3 %}
+{% block contenido %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+                
+                
+                
+                <form action="" method="POST" class="form-group" enctype="multipart/form-data">
+                    <h1>Agregar Categorias</h1>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <input class="btn btn-outline-secondary mt-2" type="submit" value="Agregar Personal">
+                    
+                </form>
+            </div>
+        </div>
+
+        <div style="margin-top: 10rem;">
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Cbu</th>
+
+                </tr>
+                {% for i in personal %}
+                <tr>
+                    
+                    <td>{{i.id}}</td>
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.cbu}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+{% endblock %}
